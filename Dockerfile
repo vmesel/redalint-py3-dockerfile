@@ -18,4 +18,8 @@ RUN apt-get install -y recoll python3-recoll python3 git wv poppler-utils --allo
     
 RUN apt-get install -y unzip xsltproc unrtf untex libimage-exiftool-perl antiword python3-waitress
 
-RUN mkdir /homes && mkdir /root/.recoll
+RUN mkdir /homes && mkdir /root/.recolL && mkdir /redalint
+
+WORKDIR /redalint
+
+RUN git clone https://github.com/vmesel/redalint-py3-dockerfile.git
