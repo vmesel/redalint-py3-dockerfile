@@ -9,7 +9,7 @@ def download_extra_metadata():
     scope = ['https://spreadsheets.google.com/feeds',
             'https://www.googleapis.com/auth/drive']
 
-    creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name('/redalint/client_secret.json', scope)
     client = gspread.authorize(creds)
 
     sheet = client.open("teste-redalint").sheet1
@@ -24,7 +24,10 @@ def download_extra_metadata():
 
     middle_json = {dict_result["nome_arquivo"]: dict_result for dict_result in list_of_hashes}
 
-    f = open("../metadados.json", "w")
+    f = open("/redalint/metadados.json", "w")
     json.dump(middle_json, f, indent=4, sort_keys=True, ensure_ascii=False)
     f.close()
     return True
+
+if __name__ == "__main__":
+    download_extra_metadata()

@@ -4,8 +4,8 @@ import argparse
 import webui
 
 from custom_metadata import metadata_gen
-from gevent import monkey, spawn as gspawn, sleep as gsleep
-monkey.patch_all()
+
+metadata_gen.download_extra_metadata()
 
 # handle command-line arguments
 parser = argparse.ArgumentParser()
@@ -21,12 +21,6 @@ if os.path.dirname(__file__) != "":
 webui.bottle.debug(False)
 webui.bottle.run(server='waitress', host=args.addr, port=args.port)
 
-def worker_loop():
-    metadata_gen.download_extra_metadata()
-    gsleep(7200)
-
-metadata_gen.download_extra_metadata()
-gspawn(worker_loop)
 
 
 # vim: foldmethod=marker:filetype=python:textwidth=80:ts=4:et
