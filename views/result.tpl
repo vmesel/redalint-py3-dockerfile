@@ -1,6 +1,5 @@
 %import shlex, unicodedata
-%def strip_accents(s): return ''.join((c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn'))
-<div class="search-result">
+    <div class="search-result">
     %number = (query['page'] - 1)*config['perpage'] + i + 1
     <div class="search-result-number"><a href="#r{{d['sha']}}">#{{number}}</a></div>
     %url = d['url'].replace('file://', '')
@@ -8,6 +7,7 @@
         %url = url.replace(dr, prefix)
     %end
     <div class="search-result-title" id="r{{d['sha']}}" title="{{d['abstract']}}"><a href="{{url}}">{{d['label']}}</a></div>
+    <p>{{d['extra_metadata']}}</p>
     %if len(d['ipath']) > 0:
         <div class="search-result-ipath">[{{d['ipath']}}]</div>
     %end
@@ -24,7 +24,7 @@
     <div class="search-result-date">{{d['time']}}</div>
     %for q in shlex.split(query['query'].replace("'","\\'")):
         %if not q == "OR":
-            % w = strip_accents(q.decode('utf-8').lower()).encode('utf-8')
+            % w = q.lower()
             % d['snippet'] = d['snippet'].replace(w,'<span class="search-result-highlight">'+w+'</span>')
         %end
     %end

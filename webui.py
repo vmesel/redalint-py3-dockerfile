@@ -8,6 +8,7 @@ import datetime
 import glob
 import hashlib
 import csv
+import json
 import io
 import string
 import shlex
@@ -295,6 +296,25 @@ def main():
     return { 'dirs': get_dirs(config['dirs'], config['dirdepth']),
             'query': get_query(), 'sorts': SORTS, 'config': config}
 #}}}
+
+#{{{ extra metadata from results
+
+def extra_metadata_func(filenames):
+    return_list = []
+
+    metadata_json = open('metadados.json', 'r')
+    metadata_json_obj = json.load(metadata_json)
+
+    for filename in filenames:
+        if filename not in metadata_json_obj.keys():
+            return_list.append({})
+        else:
+            return_list.append(metadata_json_obj[filename])
+    
+    return return_list
+
+#}}}
+
 #{{{ results
 @bottle.route('/results')
 @bottle.view('results')
@@ -303,6 +323,15 @@ def results():
     query = get_query()
     qs = query_to_recoll_string(query)
     res, nres, timer = recoll_search(query)
+
+    filenames = [dict_res["filename"] for dict_res in res]
+    extra_metadatas = extra_metadata_func(filenames)
+
+    for extra_metadata in extra_metadatas:
+        for result in res:
+            result["extra_metadata"] = extra_metadata
+
+    print(res[0])
     if config['maxresults'] == 0:
         config['maxresults'] = nres
     if config['perpage'] == 0:
