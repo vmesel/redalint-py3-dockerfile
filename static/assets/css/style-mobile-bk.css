@@ -1,0 +1,147 @@
+/*** Base Estrutural :: Grade; ***/
+.mobile-hidden{display: none}
+.col-1{width:8.3333%;}.col-2{width:16.6666%;}.col-3{width:25%;}.col-4{width:33.3333%;}.col-5{width:41.6666%;}.col-6{width:50%;}.col-7{width:58.3333%;}.col-8{width:66.6666%;}.col-9{width:75%;}.col-10{width:83.3333%;}.col-11{width:91.6666%;}.col-12{width:100%;}
+/*** Header ***/
+.menu{
+	display: flex;
+	flex-direction: column;
+}
+label{
+	height: 40px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	font-weight: bold;
+	font-size: 18px;
+	padding-left: 20px;
+}
+#PainelDaConsulta button{
+	width: 190px;
+	padding:8px 8px 8px 16px; 
+}
+#searchClean{
+	justify-content: space-between;
+	margin-bottom: 50px;
+}
+#searchClean button:nth-child(1){
+	margin-right: 20px;
+}
+#searchClean button:nth-child(2){
+	margin-right: 0px;
+}
+#MenuPrincipal{
+	display: none;
+}
+#MenuBotao{
+	width: 45px;
+	height: 45px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+#MenuBotao span{
+	width: 45px;
+	height: 2px;
+	background-color: rgba(0,78,133,1);
+	transition: ease 0.7s all;
+}
+#MenuBotao.opened span{
+	position: absolute;
+	top: 50%;
+	margin-top:-1px;
+}
+#MenuBotao.opened span:nth-child(1){
+	transform: rotate(45deg);
+}
+#MenuBotao.opened span:nth-child(2){
+	display: none;
+}
+#MenuBotao.opened span:nth-child(3){
+	transform: rotate(-45deg);
+}
+header{
+	position: fixed;
+	top:0px;
+	width: 100%;
+	background-color:#FFF;
+	border-bottom: 1px solid #66A;
+	height: 80px;
+	z-index: 20000;
+}
+body{
+	padding-top: 80px;
+}
+#MenuPrincipal{
+	position: fixed;
+	height: calc( 100% - 80px );
+	top:80px;
+	z-index: 20000;
+	width: 100%;
+	left: 0px;
+}
+#MenuPrincipal ul{
+	padding: 10px;
+}
+#MenuPrincipal li{
+	width: 100%;
+	padding: 20px;
+	border-bottom: 1px solid #FFF;
+	position: relative;
+}
+#MenuPrincipal li a{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 30px;
+}
+#logo{
+	height: 60px;
+}
+.mobile-ph10{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+footer #InstituicoesEnvolvidas{
+	display: none;
+}
+footer .menu{
+	display: none;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.h1{
+	font-size: 26px;
+}
+iframe{
+	max-width: 100%;
+	height: 220px;
+}
+#pages{
+	flex-wrap: wrap;
+}
+#MenuPrincipal .menu li#MenuLogo{
+	display: none;
+}
+#results .search-result .search-result-title{
+	margin-left: 10px auto;
+	width: calc(100% - 40px);
+	padding-left: 0px;
+}
+#results .search-result .search-result-date{
+	justify-content: flex-start;
+	padding: 0px 20px;
+}
+#results .search-result .search-result-snippet{
+	width: 100%;
+	margin: 10px 0px;
+	padding: 10px 15px;
+}
+#status #downloads{
+	display: none;
+}
+#status #found{
+	flex-wrap: wrap;
+}

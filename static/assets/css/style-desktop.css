@@ -1,0 +1,45 @@
+/*** Base Estrutural :: Grade ***/
+.container{max-width: 1140px;margin: auto;padding-left:15px;padding-right:15px;}
+.col-pc-1{width:8.3333%;}.col-pc-2{width:16.6666%;}.col-pc-3{width:25%;}.col-pc-4{width:33.3333%;}.col-pc-5{width:41.6666%;}.col-pc-6{width:50%;}.col-pc-7{width:58.3333%;}.col-pc-8{width:66.6666%;}.col-pc-9{width:75%;}.col-pc-10{width:83.3333%;}.col-pc-11{width:91.6666%;}.col-pc-12{width:100%;}
+/*** Geral ***/
+.pc-hidden{
+	display: none;
+}
+/*** Header ***/
+#searchBox{
+	width: 790px;	
+	border-bottom: 1px solid #a9a9a9;
+	display: flex;
+	padding-right: 10
+
+}
+#searchBox input{
+	width: calc( 100% - 50px);
+	margin-right: 20px;
+	font-size: 17px;
+	padding: 8px;
+	border:0px;
+	background-color:transparent;
+}
+#searchBox button{
+	border: 0px;
+	background-color: transparent;
+	color:rgba(0,78,133,1);
+	width: 30px;
+	font-size: 22px;
+}
+#MenuPrincipal{
+	height: 100px;
+}
+#MenuPrincipal .menu{
+	display:flex;
+	height: 100px;
+	align-items: center;
+	justify-content: space-between;
+}	
+#PainelDaConsulta label{
+	display: flex;
+	height: 36px;
+	font-size: 18px;
+	align-items: center;
+}
